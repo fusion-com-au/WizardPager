@@ -28,16 +28,16 @@ public class ReviewItem {
     private String mPageKey;
     private String mBundleKey;
 
-    public ReviewItem(String title, String displayValue, String pageKey, String bundleKey) {
-        this(title, displayValue, pageKey, DEFAULT_WEIGHT, bundleKey);
+    public ReviewItem(String title, String displayValue, String pageKey) {
+        this(title, displayValue, pageKey, DEFAULT_WEIGHT);
     }
 
-    public ReviewItem(String title, String displayValue, String pageKey, int weight, String bundleKey ) {
+    public ReviewItem(String title, String displayValue, String pageKey, int weight) {
         mTitle = title;
         mDisplayValue = displayValue;
         mPageKey = pageKey;
         mWeight = weight;
-        mBundleKey = bundleKey;
+        mBundleKey = "";
     }
 
     public String getDisplayValue() {
@@ -70,6 +70,10 @@ public class ReviewItem {
 
     public void setWeight(int weight) {
         mWeight = weight;
+    }
+
+    public void setBundleKey( String key ) {
+        mBundleKey = key;
     }
 
     public String getBundleKey() {
