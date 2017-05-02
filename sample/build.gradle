@@ -11,11 +11,10 @@ android {
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
-    buildToolsVersion '25.0.0'
 }
 
 dependencies {
     compile project(':library')
-    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:appcompat-v7:25.3.0'
     //compile 'com.github.techfreak:wizardpager:1.0.0'
 }
