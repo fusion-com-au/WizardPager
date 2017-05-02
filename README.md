@@ -1,32 +1,28 @@
-Wizard Pager
+Multistep Wizard 
 =================
 
 ![Wizard Pager Screenshot](https://lh3.googleusercontent.com/-_-Sv3J3bdcc/UdeUUDd1TjI/AAAAAAAAEEo/yproJ-EbCJg/w412-h716-no/wizardPager.png)
 
-Wizard Pager is a library that provides an example implementation of a Wizard UI on Android, it's based of Roman Nurik's wizard pager (https://github.com/romannurik/android-wizardpager)
-
-I've updated Roman's code to use the latest support library, it is now structured as a library project, and it's backwards compatible with Android 2.2
+Multistep Wizard is a library that provides an enhanced implementation of a Wizard UI originally developed by Julián Suárez (https://github.com/TechFreak/WizardPager)
 
 Download
 ============
 
-WizardPager is ready to be used via [jitpack.io](https://jitpack.io/#TechFreak/WizardPager).
+WizardPager is currently only available for Fusion staff.
 Simply add the following code to your root `build.gradle`:
 
 ```groovy
 allprojects {
     repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
+        maven { url "http://nexus3.rancher.fusion.one:8081/repository/maven-releases/"}
     }
 }
 ```
 
 Now add the gradle dependency in your application's `build.gradle`:
-
 ```groovy
 dependencies {
-    compile 'com.github.TechFreak:WizardPager:{latest_version}'
+    compile 'com.github.fusion-com-au:wizardpager:2.0.1'
 }
 ```
 
@@ -34,13 +30,6 @@ Usage
 ============
 
 There is a sample implementation, so you can see how to add this library to your project. The example uses ActionBarCompat.
-
-
-
-Developed By
-============
-
-* Tech Freak - <tech.freak.blog@gmail.com>
 
 
 License
