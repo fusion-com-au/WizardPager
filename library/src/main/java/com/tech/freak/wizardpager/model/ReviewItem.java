@@ -18,8 +18,6 @@ package com.tech.freak.wizardpager.model;
 
 /**
  * Represents a single line item on the final review page.
- *
- * @see com.example.android.wizardpager.wizard.ui.ReviewFragment
  */
 public class ReviewItem {
     public static final int DEFAULT_WEIGHT = 0;
@@ -28,16 +26,18 @@ public class ReviewItem {
     private String mTitle;
     private String mDisplayValue;
     private String mPageKey;
+    private String mBundleKey;
 
-    public ReviewItem(String title, String displayValue, String pageKey) {
-        this(title, displayValue, pageKey, DEFAULT_WEIGHT);
+    public ReviewItem(String title, String displayValue, String pageKey, String bundleKey) {
+        this(title, displayValue, pageKey, DEFAULT_WEIGHT, bundleKey);
     }
 
-    public ReviewItem(String title, String displayValue, String pageKey, int weight) {
+    public ReviewItem(String title, String displayValue, String pageKey, int weight, String bundleKey ) {
         mTitle = title;
         mDisplayValue = displayValue;
         mPageKey = pageKey;
         mWeight = weight;
+        mBundleKey = bundleKey;
     }
 
     public String getDisplayValue() {
@@ -70,5 +70,9 @@ public class ReviewItem {
 
     public void setWeight(int weight) {
         mWeight = weight;
+    }
+
+    public String getBundleKey() {
+        return mBundleKey;
     }
 }
