@@ -9,21 +9,6 @@ Download
 ============
 
 WizardPager is currently only available for Fusion staff.
-Simply add the following code to your root `build.gradle`:
-
-```groovy
-allprojects {
-    repositories {
-        maven { url "http://nexus3.rancher.fusion.one:8081/repository/maven-releases/"}
-    }
-}
-```
-
-Now add the gradle dependency in your application's `build.gradle`:
-```groovy
-dependencies {
-    compile 'com.github.fusion-com-au:wizardpager:2.0.1'
-}
 ```
 
 Usage
