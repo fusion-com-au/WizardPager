@@ -11,6 +11,7 @@ android {
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
+    buildToolsVersion '25.0.0'
 }
 
 dependencies {
