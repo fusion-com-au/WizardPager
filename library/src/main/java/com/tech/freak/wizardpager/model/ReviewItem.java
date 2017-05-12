@@ -27,6 +27,7 @@ public class ReviewItem {
     private String mDisplayValue;
     private String mPageKey;
     private String mBundleKey;
+    private String mSecondaryDisplayValue;
 
     public ReviewItem(String title, String displayValue, String pageKey) {
         this(title, displayValue, pageKey, DEFAULT_WEIGHT);
@@ -38,6 +39,7 @@ public class ReviewItem {
         mPageKey = pageKey;
         mWeight = weight;
         mBundleKey = "";
+        mSecondaryDisplayValue = "";
     }
 
     public String getDisplayValue() {
@@ -78,5 +80,13 @@ public class ReviewItem {
 
     public String getBundleKey() {
         return mBundleKey;
+    }
+
+    public String getSecondaryDisplayValue() {
+        return mSecondaryDisplayValue;
+    }
+
+    public void setSecondaryDisplayValue(String secondaryDisplayValue) {
+        this.mSecondaryDisplayValue = secondaryDisplayValue;
     }
 }
