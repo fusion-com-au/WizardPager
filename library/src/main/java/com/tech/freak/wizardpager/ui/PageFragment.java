@@ -16,7 +16,6 @@ import com.tech.freak.wizardpager.model.Page;
 public class PageFragment extends Fragment {
 
     protected static final String ARG_KEY = "key";
-    protected String key; // The key
     protected Page page; // The page the fragment is associated to.
     private PageFragmentCallbacks mCallbacks;
 
@@ -24,7 +23,7 @@ public class PageFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle args = getArguments();
-        key = args.getString(ARG_KEY);
+        String key = args.getString(ARG_KEY);
         page = mCallbacks.onGetPage(key);
     }
 
