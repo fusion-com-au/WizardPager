@@ -15,8 +15,8 @@ import com.tech.freak.wizardpager.model.Page;
 
 public class PageFragment extends Fragment {
 
-    protected static final String ARG_KEY = "key";
-    protected Page page; // The page the fragment is associated to.
+    private final String ARG_KEY = "key";
+    private Page page; // The page the fragment is associated to.
     private PageFragmentCallbacks mCallbacks;
 
     @Override
@@ -59,6 +59,18 @@ public class PageFragment extends Fragment {
             }
         }
         return null;
+    }
+
+    /**
+     * Get the bundle data from the page associated with this fragment.
+     * @return The bundle
+     */
+    public Bundle getBundle() {
+        return page.getData();
+    }
+
+    public void notifiyPageDataChanged() {
+        page.notifyDataChanged();
     }
 
 }
