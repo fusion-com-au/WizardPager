@@ -2,8 +2,12 @@ package com.tech.freak.wizardpager.ui;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.tech.freak.wizardpager.model.Page;
 
@@ -16,6 +20,7 @@ import com.tech.freak.wizardpager.model.Page;
 public class PageFragment extends Fragment {
 
     private final String ARG_KEY = "key";
+    private String mKey;
     private Page page; // The page the fragment is associated to.
     private PageFragmentCallbacks mCallbacks;
 
@@ -23,8 +28,22 @@ public class PageFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle args = getArguments();
-        String key = args.getString(ARG_KEY);
-        page = mCallbacks.onGetPage(key);
+        mKey = args.getString(ARG_KEY);
+    }
+
+    /**
+     * Super must be called first.
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return View
+     */
+    @CallSuper
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        page = mCallbacks.onGetPage(mKey);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
