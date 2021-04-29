@@ -14,7 +14,6 @@ android {
 }
 
 dependencies {
-    compile project(':library')
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    //compile 'com.github.techfreak:wizardpager:1.0.0'
+    implementation project(':library')
+    implementation 'androidx.appcompat:appcompat:1.2.0'
 }
