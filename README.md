@@ -9,6 +9,7 @@ Download
 ============
 
 WizardPager is currently only available for Fusion staff.
+```
 
 Usage
 ============

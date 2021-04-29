@@ -17,28 +17,24 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
+
 def isReleaseBuild() {
     return VERSION_NAME.contains("SNAPSHOT") == false
 }
 
 def getReleaseRepositoryUrl() {
-    return "http://nexus3.rancher.fusion.one:8081/repository/maven-releases/"
+    return hasProperty('FUSION_RELEASE_REPOSITORY_URL') ? FUSION_RELEASE_REPOSITORY_URL : "";
 }
 
 def getSnapshotRepositoryUrl() {
-    return "http://nexus3.rancher.fusion.one:8081/repository/maven-snapshots/"
-}
-
-def getRepositoryUsername() {
-    return hasProperty('NEXUS_USERNAME') ? NEXUS_USERNAME : ""
-}
-
-def getRepositoryPassword() {
-    return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : ""
+    return hasProperty('FUSION_SNAPSHOT_REPOSITORY_URL') ? FUSION_SNAPSHOT_REPOSITORY_URL : "";
 }
 
 afterEvaluate { project ->
     uploadArchives {
+        def Properties local = new Properties()
+        local.load(project.rootProject.file("local.properties").newDataInputStream())
+
         repositories {
             mavenDeployer {
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
@@ -46,12 +42,12 @@ afterEvaluate { project ->
                 pom.groupId = GROUP
                 pom.artifactId = POM_ARTIFACT_ID
                 pom.version = VERSION_NAME
-
                 repository(url: getReleaseRepositoryUrl()) {
-                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
+                    authentication(userName: local.getProperty("NEXUS_USERNAME"), password: local.getProperty("NEXUS_PASSWORD"))
                 }
+
                 snapshotRepository(url: getSnapshotRepositoryUrl()) {
-                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
+                    authentication(userName: local.getProperty("NEXUS_USERNAME"), password: local.getProperty("NEXUS_PASSWORD"))
                 }
 
                 pom.project {
@@ -90,16 +86,6 @@ afterEvaluate { project ->
         sign configurations.archives
     }
 
-//    task androidJavadocs(type: Javadoc) {
-//        source = android.sourceSets.main.java.srcDirs
-//        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-//    }
-//
-//    task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-//        classifier = 'javadoc'
-//        from androidJavadocs.destinationDir
-//    }
-
     task androidSourcesJar(type: Jar) {
         classifier = 'sources'
         from android.sourceSets.main.java.sourceFiles
@@ -107,6 +93,5 @@ afterEvaluate { project ->
 
     artifacts {
         archives androidSourcesJar
-//        archives androidJavadocsJar
     }
 }
