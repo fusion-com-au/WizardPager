@@ -3,7 +3,6 @@ package com.tech.freak.wizardpager.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -13,6 +12,9 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+
 import com.tech.freak.wizardpager.R;
 import com.tech.freak.wizardpager.model.Page;
 

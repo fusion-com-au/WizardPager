@@ -1,7 +1,8 @@
 package com.example.android.wizardpager.pages;
 
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+
+import androidx.fragment.app.Fragment;
 
 import com.tech.freak.wizardpager.model.ModelCallbacks;
 import com.tech.freak.wizardpager.model.Page;

@@ -3,7 +3,6 @@ package com.example.android.wizardpager.pages;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -11,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.android.wizardpager.R;
 import com.tech.freak.wizardpager.ui.PageFragmentCallbacks;
