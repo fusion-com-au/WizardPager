@@ -16,9 +16,10 @@
 
 package com.tech.freak.wizardpager.model;
 
+import androidx.fragment.app.Fragment;
+
 import java.util.ArrayList;
 
-import android.support.v4.app.Fragment;
 import com.tech.freak.wizardpager.ui.MultipleChoiceFragment;
 
 /**
